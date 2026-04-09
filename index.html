@@ -10,7 +10,7 @@
 :root{
   --bg:#F7F4F0;--surface:#FFFFFF;--surface2:#F2EFE9;
   --border:#E4DED4;--border2:#D0C8BC;
-  --gold:#9A7C3F;--gold-lt:#C9A96E;--gold-bg:#FBF5E8;
+  --gold:#9A7C3F;--gold-bg:#FBF5E8;
   --ink:#1A1714;--ink2:#4A4540;--muted:#8C8479;--muted2:#B8B0A4;
   --up:#1E6E46;--up-bg:#E6F4ED;--up-bd:#A8D9BE;
   --dn:#A8281E;--dn-bg:#FAECEB;--dn-bd:#F0B8B5;
@@ -20,100 +20,43 @@
 html{background:var(--bg);color:var(--ink);font-family:var(--sans);font-size:14px}
 
 /* ── Topbar ── */
-.topbar{
-  background:var(--surface);border-bottom:1px solid var(--border);
-  padding:0 28px;height:50px;
-  display:flex;align-items:center;justify-content:space-between;
-  position:sticky;top:0;z-index:100;
-}
-.tb-left{display:flex;align-items:center;gap:0}
+.topbar{background:var(--surface);border-bottom:1px solid var(--border);padding:0 28px;height:50px;display:flex;align-items:center;position:sticky;top:0;z-index:100}
 .dash-logo{font-family:var(--serif);font-size:17px;color:var(--ink);padding-right:20px}
 .tb-div{width:1px;height:20px;background:var(--border2)}
-
-/* Brand tabs — scrollable strip */
 .brand-tabs{display:flex;overflow-x:auto;scrollbar-width:none}
 .brand-tabs::-webkit-scrollbar{display:none}
-.btab{
-  font-size:11px;letter-spacing:0.08em;text-transform:uppercase;white-space:nowrap;
-  padding:0 14px;height:50px;line-height:50px;
-  border:none;background:transparent;cursor:pointer;
-  color:var(--muted);border-bottom:2px solid transparent;
-  transition:color .15s,border-color .15s;flex-shrink:0;
-}
+.btab{font-size:11px;letter-spacing:0.08em;text-transform:uppercase;white-space:nowrap;padding:0 14px;height:50px;line-height:50px;border:none;background:transparent;cursor:pointer;color:var(--muted);border-bottom:2px solid transparent;transition:color .15s,border-color .15s;flex-shrink:0}
 .btab:hover{color:var(--ink2)}
 .btab.on{color:var(--gold);border-bottom-color:var(--gold);font-weight:600}
 
-
-
 /* ── Filter bar ── */
-.filter-bar{
-  background:var(--surface);border-bottom:1px solid var(--border);
-  padding:0 28px;height:46px;
-  display:flex;align-items:center;gap:10px;
-  position:sticky;top:50px;z-index:99;
-}
+.filter-bar{background:var(--surface);border-bottom:1px solid var(--border);padding:0 28px;height:46px;display:flex;align-items:center;gap:10px;position:sticky;top:50px;z-index:99}
 .filter-label{font-size:9px;letter-spacing:0.12em;text-transform:uppercase;color:var(--muted2);font-weight:600;flex-shrink:0}
 .filter-sep{width:1px;height:18px;background:var(--border);flex-shrink:0}
-
-/* Custom dropdown */
 .dd-wrap{position:relative;flex-shrink:0}
-.dd-btn{
-  display:flex;align-items:center;gap:6px;
-  height:28px;padding:0 10px;
-  background:var(--surface);border:1px solid var(--border);border-radius:3px;
-  font-size:11px;color:var(--ink2);cursor:pointer;white-space:nowrap;
-  transition:border-color .15s;
-}
+.dd-btn{display:flex;align-items:center;gap:6px;height:28px;padding:0 10px;background:var(--surface);border:1px solid var(--border);border-radius:3px;font-size:11px;color:var(--ink2);cursor:pointer;white-space:nowrap;transition:border-color .15s}
 .dd-btn:hover{border-color:var(--border2)}
 .dd-btn.active{border-color:var(--gold);color:var(--gold);background:var(--gold-bg)}
-.dd-icon{font-size:8px;color:var(--muted2);margin-left:2px}
 .dd-caret{display:inline-block;width:0;height:0;border-left:4px solid transparent;border-right:4px solid transparent;border-top:4px solid var(--muted2);margin-left:4px;flex-shrink:0}
 .dd-btn.active .dd-caret{border-top-color:var(--gold)}
-.dd-panel{
-  display:none;position:absolute;top:calc(100% + 4px);left:0;
-  background:var(--surface);border:1px solid var(--border);border-radius:4px;
-  min-width:180px;z-index:200;
-  box-shadow:0 4px 16px rgba(0,0,0,0.08);
-  overflow:hidden;
-}
+.dd-panel{display:none;position:absolute;top:calc(100% + 4px);left:0;background:var(--surface);border:1px solid var(--border);border-radius:4px;min-width:180px;z-index:200;box-shadow:0 4px 16px rgba(0,0,0,0.08);overflow:hidden}
 .dd-panel.open{display:block}
 .dd-section{padding:6px 0}
 .dd-section+.dd-section{border-top:1px solid var(--border)}
 .dd-section-label{font-size:9px;letter-spacing:0.12em;text-transform:uppercase;color:var(--muted2);padding:6px 12px 3px;font-weight:600}
-.dd-opt{
-  display:flex;align-items:center;gap:8px;padding:7px 12px;
-  font-size:12px;color:var(--ink2);cursor:pointer;
-  transition:background .1s;
-}
+.dd-opt{display:flex;align-items:center;gap:8px;padding:7px 12px;font-size:12px;color:var(--ink2);cursor:pointer;transition:background .1s}
 .dd-opt:hover{background:var(--surface2)}
 .dd-opt.selected{color:var(--gold);font-weight:500}
 .dd-check{width:14px;height:14px;border-radius:2px;border:1px solid var(--border2);flex-shrink:0;display:flex;align-items:center;justify-content:center;font-size:9px}
 .dd-opt.selected .dd-check{background:var(--gold);border-color:var(--gold);color:#fff}
-
-/* Date range special */
 .dd-date-row{display:flex;align-items:center;gap:6px;padding:8px 12px}
-.dd-date-row input[type=date]{
-  flex:1;height:28px;border:1px solid var(--border);border-radius:3px;
-  font-size:11px;color:var(--ink2);padding:0 6px;background:var(--surface2);
-  font-family:var(--sans);
-}
+.dd-date-row input[type=date]{flex:1;height:28px;border:1px solid var(--border);border-radius:3px;font-size:11px;color:var(--ink2);padding:0 6px;background:var(--surface2);font-family:var(--sans)}
 .dd-date-row span{font-size:10px;color:var(--muted)}
-.dd-apply{
-  margin:6px 12px 8px;width:calc(100% - 24px);height:28px;
-  background:var(--gold);color:#fff;border:none;border-radius:3px;
-  font-size:11px;font-weight:600;letter-spacing:0.06em;cursor:pointer;
-}
-
-/* Active filter pills */
-.filter-pills{display:flex;gap:6px;margin-left:4px;flex-wrap:nowrap;overflow:hidden}
-.fpill{
-  display:flex;align-items:center;gap:5px;
-  background:var(--gold-bg);border:1px solid #E8D9B0;
-  border-radius:3px;padding:2px 8px;font-size:10px;color:#7A6030;white-space:nowrap;
-}
-.fpill-x{cursor:pointer;font-size:11px;color:var(--muted2);margin-left:2px;line-height:1}
+.dd-apply{margin:6px 12px 8px;width:calc(100% - 24px);height:28px;background:var(--gold);color:#fff;border:none;border-radius:3px;font-size:11px;font-weight:600;cursor:pointer}
+.filter-pills{display:flex;gap:6px;flex-wrap:nowrap;overflow:hidden}
+.fpill{display:flex;align-items:center;gap:5px;background:var(--gold-bg);border:1px solid #E8D9B0;border-radius:3px;padding:2px 8px;font-size:10px;color:#7A6030;white-space:nowrap}
+.fpill-x{cursor:pointer;font-size:11px;color:var(--muted2);margin-left:2px}
 .fpill-x:hover{color:var(--dn)}
-
 .filter-clear{font-size:10px;color:var(--muted);cursor:pointer;margin-left:auto;flex-shrink:0;padding:2px 6px;border-radius:3px}
 .filter-clear:hover{color:var(--dn);background:var(--dn-bg)}
 
@@ -122,11 +65,7 @@ html{background:var(--bg);color:var(--ink);font-family:var(--sans);font-size:14p
 
 /* ── Hero row ── */
 .hero-row{display:grid;grid-template-columns:1.7fr 1fr;gap:12px}
-.hero-card{
-  background:var(--surface);border:1px solid var(--border);border-radius:3px;
-  padding:22px 24px;display:flex;flex-direction:column;justify-content:space-between;
-  min-height:152px;position:relative;overflow:hidden;
-}
+.hero-card{background:var(--surface);border:1px solid var(--border);border-radius:3px;padding:22px 24px;display:flex;flex-direction:column;justify-content:space-between;min-height:148px;position:relative;overflow:hidden}
 .hero-card::after{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:var(--gold)}
 .hero-eyebrow{font-size:9px;letter-spacing:0.16em;text-transform:uppercase;color:var(--gold);font-weight:600;margin-bottom:7px}
 .hero-num{font-family:var(--serif);font-size:48px;color:var(--ink);line-height:1;margin-bottom:5px}
@@ -135,8 +74,6 @@ html{background:var(--bg);color:var(--ink);font-family:var(--sans);font-size:14p
 .chip{font-size:9px;padding:3px 9px;border-radius:2px;font-weight:600}
 .chip-up{background:var(--up-bg);color:var(--up);border:1px solid var(--up-bd)}
 .chip-dn{background:var(--dn-bg);color:var(--dn);border:1px solid var(--dn-bd)}
-.chip-neu{background:var(--surface2);color:var(--muted);border:1px solid var(--border)}
-
 .hero-right{display:flex;flex-direction:column;gap:10px}
 .stat-card{background:var(--surface);border:1px solid var(--border);border-radius:3px;padding:14px 16px;flex:1}
 .stat-lbl{font-size:9px;letter-spacing:0.12em;text-transform:uppercase;color:var(--muted);font-weight:600;margin-bottom:2px}
@@ -150,39 +87,31 @@ html{background:var(--bg);color:var(--ink);font-family:var(--sans);font-size:14p
 .s-rule{width:18px;height:2px;background:var(--gold);flex-shrink:0}
 .s-num{font-size:9px;letter-spacing:0.14em;text-transform:uppercase;color:var(--muted2);font-weight:600}
 .s-title{font-family:var(--serif);font-size:15px;color:var(--ink)}
-.s-hl{font-size:10px;color:var(--muted);margin-left:auto;max-width:360px;text-align:right;line-height:1.5}
-
-/* ── KPI row ── */
-.kpi-row{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:10px}
-.kpi-card{background:var(--surface);border:1px solid var(--border);border-radius:3px;padding:14px 16px}
-.kpi-lbl{font-size:9px;letter-spacing:0.12em;text-transform:uppercase;color:var(--gold);font-weight:600;margin-bottom:2px}
-.kpi-sub{font-size:9px;color:var(--muted2);margin-bottom:7px}
-.kpi-val{font-family:var(--serif);font-size:22px;color:var(--ink);line-height:1}
-.kpi-delta{font-size:10px;margin-top:5px;font-weight:600}
-.spark-wrap{height:26px;margin:7px 0 3px}
+.s-hl{font-size:10px;color:var(--muted);margin-left:auto;max-width:400px;text-align:right;line-height:1.5}
 
 /* ── Panels ── */
-.two-col{display:grid;grid-template-columns:1.5fr 1fr;gap:12px}
 .chart-panel{background:var(--surface);border:1px solid var(--border);border-radius:3px;padding:18px 20px}
-.panel-lbl{font-size:9px;letter-spacing:0.13em;text-transform:uppercase;color:var(--gold);font-weight:600;margin-bottom:14px}
+.panel-lbl{font-size:9px;letter-spacing:0.13em;text-transform:uppercase;color:var(--gold);font-weight:600;margin-bottom:14px;display:flex;align-items:center;gap:6px}
 
-/* ── Merchant ── */
-.merch-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:8px}
-.mc{background:var(--surface2);border:1px solid var(--border);border-radius:3px;padding:11px 13px}
-.mc-rank{font-size:9px;color:var(--muted);margin-bottom:3px}
-.mc-name{font-size:12px;color:var(--ink);font-weight:500;margin-bottom:5px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
-.mc-rev{font-family:var(--serif);font-size:19px;color:var(--ink);margin-bottom:7px}
-.mc-chips{display:flex;gap:4px;flex-wrap:wrap}
-.mc-chip{font-size:8px;padding:2px 6px;border-radius:2px;border:1px solid var(--border);color:var(--muted2)}
+/* ── Waterfall legend ── */
+.wf-leg{display:flex;gap:14px;margin-top:10px;flex-wrap:wrap}
+.wf-li{display:flex;align-items:center;gap:5px;font-size:9px;color:var(--muted)}
+.wf-dot{width:8px;height:8px;border-radius:1px}
 
-/* ── Network table ── */
-.net-tbl{width:100%;border-collapse:collapse;font-size:11px}
-.net-tbl th{font-size:9px;letter-spacing:0.1em;text-transform:uppercase;color:var(--muted);font-weight:500;padding:8px 10px;border-bottom:2px solid var(--border);text-align:left}
-.net-tbl td{padding:9px 10px;border-bottom:1px solid var(--border);color:var(--ink)}
-.net-tbl tr:last-child td{border-bottom:none}
-.net-tbl tr:nth-child(even) td{background:#FAFAF8}
-.bar-cell{display:flex;align-items:center;gap:7px}
-.bar-fill{height:4px;border-radius:2px}
+/* ── Funnel KPI cards ── */
+.funnel-row{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:10px}
+.fkpi{background:var(--surface);border:1px solid var(--border);border-radius:3px;padding:14px 16px}
+.fkpi-lbl{font-size:9px;letter-spacing:0.12em;text-transform:uppercase;color:var(--gold);font-weight:600;margin-bottom:2px}
+.fkpi-sub{font-size:9px;color:var(--muted2);margin-bottom:7px}
+.fkpi-val{font-family:var(--serif);font-size:22px;color:var(--ink);line-height:1}
+.fkpi-delta{font-size:10px;margin-top:5px;font-weight:600}
+.spark-wrap{height:26px;margin:7px 0 3px}
+
+/* ── Traffic line chart ── */
+.traffic-panel{background:var(--surface);border:1px solid var(--border);border-radius:3px;padding:18px 20px}
+.tl-legend{display:flex;gap:20px;margin-top:12px;flex-wrap:wrap}
+.tl-li{display:flex;align-items:center;gap:6px;font-size:10px;color:var(--muted)}
+.tl-line{width:20px;height:2px;border-radius:2px}
 
 /* ── Goals ── */
 .goals-row{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px}
@@ -197,63 +126,49 @@ html{background:var(--bg);color:var(--ink);font-family:var(--sans);font-size:14p
 .gm-val{font-family:var(--serif);font-size:15px;color:var(--ink);text-align:right}
 .gm-delta{font-size:9px;text-align:right;font-weight:600}
 
-/* ── Method ── */
-.method{background:var(--surface);border:1px solid var(--border);border-left:2px solid var(--gold);border-radius:0 3px 3px 0;padding:14px 18px}
-.method-lbl{font-size:9px;letter-spacing:0.14em;text-transform:uppercase;color:var(--gold);font-weight:600;margin-bottom:8px}
-.method-txt{font-size:10px;color:var(--muted);line-height:1.8}
-
-/* ── Waterfall legend ── */
-.wf-leg{display:flex;gap:14px;margin-top:10px;flex-wrap:wrap}
-.wf-li{display:flex;align-items:center;gap:5px;font-size:9px;color:var(--muted)}
-.wf-dot{width:8px;height:8px;border-radius:1px}
+/* ── Tooltip icon ── */
+.tip-wrap{position:relative;display:inline-flex;align-items:center}
+.tip-icon{width:14px;height:14px;border-radius:50%;border:1px solid var(--border2);color:var(--muted);font-size:8px;display:inline-flex;align-items:center;justify-content:center;cursor:default;font-style:normal}
+.tip-box{display:none;position:absolute;bottom:calc(100% + 6px);left:50%;transform:translateX(-50%);background:var(--ink);border-radius:3px;padding:8px 12px;font-size:10px;color:#FFF;line-height:1.6;white-space:nowrap;z-index:300;font-weight:400;max-width:320px;white-space:normal;width:280px}
+.tip-wrap:hover .tip-box{display:block}
 
 /* ── Footer ── */
 .footer{border-top:1px solid var(--border);padding:12px 28px;display:flex;justify-content:space-between;font-size:10px;color:var(--muted)}
-
-/* Tooltip */
-.tip-wrap{position:relative;display:inline-block}
-.tip-icon{width:13px;height:13px;border-radius:50%;border:1px solid var(--border2);color:var(--muted);font-size:8px;display:inline-flex;align-items:center;justify-content:center;cursor:default;margin-left:4px;vertical-align:middle}
-.tip-box{display:none;position:absolute;bottom:calc(100% + 6px);left:50%;transform:translateX(-50%);background:var(--ink);border-radius:3px;padding:6px 10px;font-size:10px;color:#FFF;line-height:1.5;white-space:nowrap;z-index:300}
-.tip-wrap:hover .tip-box{display:block}
 </style>
 </head>
 <body>
 
 <!-- ── Topbar ── -->
 <div class="topbar">
-  <div class="tb-left">
-    <span class="dash-logo">dash</span>
-    <div class="tb-div"></div>
-    <div class="brand-tabs" id="brandTabs">
-      <button class="btab on" onclick="selBrand(this,'GQ')">GQ</button>
-      <button class="btab" onclick="selBrand(this,'Vogue')">Vogue</button>
-      <button class="btab" onclick="selBrand(this,'Wired')">Wired</button>
-      <button class="btab" onclick="selBrand(this,'Allure')">Allure</button>
-      <button class="btab" onclick="selBrand(this,'Vanity Fair')">Vanity Fair</button>
-      <button class="btab" onclick="selBrand(this,'AD')">AD</button>
-      <button class="btab" onclick="selBrand(this,'Pitchfork')">Pitchfork</button>
-      <button class="btab" onclick="selBrand(this,'Self')">Self</button>
-    </div>
-  </div>
+  <span class="dash-logo">dash</span>
+  <div class="tb-div"></div>
+  <div class="brand-tabs">
+    <button class="btab on" onclick="selBrand(this,'GQ')">GQ</button>
+    <button class="btab" onclick="selBrand(this,'Vogue')">Vogue</button>
+    <button class="btab" onclick="selBrand(this,'Wired')">Wired</button>
+    <button class="btab" onclick="selBrand(this,'Allure')">Allure</button>
+    <button class="btab" onclick="selBrand(this,'Vanity Fair')">Vanity Fair</button>
+    <button class="btab" onclick="selBrand(this,'AD')">AD</button>
+    <button class="btab" onclick="selBrand(this,'Pitchfork')">Pitchfork</button>
+    <button class="btab" onclick="selBrand(this,'Self')">Self</button>
   </div>
 </div>
 
 <!-- ── Filter bar ── -->
-<div class="filter-bar" id="filterBar">
+<div class="filter-bar">
   <span class="filter-label">Filters</span>
   <div class="filter-sep"></div>
 
   <!-- Date -->
-  <div class="dd-wrap" id="dd-date">
-    <button class="dd-btn" onclick="toggleDD('date')" id="btn-date">
-      <span id="lbl-date">Date range</span>
+  <div class="dd-wrap">
+    <button class="dd-btn active" onclick="toggleDD('date')" id="btn-date">
+      <span id="lbl-date">Last 3 months</span>
       <span class="dd-caret"></span>
     </button>
     <div class="dd-panel" id="panel-date">
       <div class="dd-section">
         <div class="dd-section-label">Quick select</div>
-        <div class="dd-opt" onclick="setQuickDate('Last 7 days',this)"><div class="dd-check"></div>Last 7 days</div>
-        <div class="dd-opt" onclick="setQuickDate('Last 30 days',this)"><div class="dd-check"></div>Last 30 days</div>
+        <div class="dd-opt" onclick="setQuickDate('Last month',this)"><div class="dd-check"></div>Last month</div>
         <div class="dd-opt selected" onclick="setQuickDate('Last 3 months',this)"><div class="dd-check">✓</div>Last 3 months</div>
         <div class="dd-opt" onclick="setQuickDate('Last 6 months',this)"><div class="dd-check"></div>Last 6 months</div>
         <div class="dd-opt" onclick="setQuickDate('Year to date',this)"><div class="dd-check"></div>Year to date</div>
@@ -271,7 +186,7 @@ html{background:var(--bg);color:var(--ink);font-family:var(--sans);font-size:14p
   </div>
 
   <!-- Market -->
-  <div class="dd-wrap" id="dd-market">
+  <div class="dd-wrap">
     <button class="dd-btn" onclick="toggleDD('market')" id="btn-market">
       <span id="lbl-market">Market</span>
       <span class="dd-caret"></span>
@@ -287,227 +202,100 @@ html{background:var(--bg);color:var(--ink);font-family:var(--sans);font-size:14p
     </div>
   </div>
 
-  <!-- Channel -->
-  <div class="dd-wrap" id="dd-channel">
-    <button class="dd-btn" onclick="toggleDD('channel')" id="btn-channel">
-      <span id="lbl-channel">Channel</span>
-      <span class="dd-caret"></span>
-    </button>
-    <div class="dd-panel" id="panel-channel" style="min-width:180px">
-      <div class="dd-section">
-        <div class="dd-section-label">Channel</div>
-        <div class="dd-opt" onclick="toggleOpt(this,'channel','Search')"><div class="dd-check"></div>Search</div>
-        <div class="dd-opt" onclick="toggleOpt(this,'channel','Direct')"><div class="dd-check"></div>Direct</div>
-        <div class="dd-opt" onclick="toggleOpt(this,'channel','Email')"><div class="dd-check"></div>Email</div>
-        <div class="dd-opt" onclick="toggleOpt(this,'channel','Social')"><div class="dd-check"></div>Social</div>
-        <div class="dd-opt" onclick="toggleOpt(this,'channel','App')"><div class="dd-check"></div>App</div>
-        <div class="dd-opt" onclick="toggleOpt(this,'channel','Referral')"><div class="dd-check"></div>Referral</div>
-      </div>
-      <div class="dd-section">
-        <div class="dd-section-label">Subchannel</div>
-        <div class="dd-opt" onclick="toggleOpt(this,'channel','Organic Search')"><div class="dd-check"></div>Organic Search</div>
-        <div class="dd-opt" onclick="toggleOpt(this,'channel','Paid Search')"><div class="dd-check"></div>Paid Search</div>
-        <div class="dd-opt" onclick="toggleOpt(this,'channel','Newsletter')"><div class="dd-check"></div>Newsletter</div>
-        <div class="dd-opt" onclick="toggleOpt(this,'channel','Push')"><div class="dd-check"></div>Push</div>
-      </div>
-    </div>
-  </div>
-
-  <!-- Traffic source -->
-  <div class="dd-wrap" id="dd-traffic">
-    <button class="dd-btn" onclick="toggleDD('traffic')" id="btn-traffic">
-      <span id="lbl-traffic">Traffic source</span>
-      <span class="dd-caret"></span>
-    </button>
-    <div class="dd-panel" id="panel-traffic" style="min-width:190px">
-      <div class="dd-section">
-        <div class="dd-section-label">Relationship type</div>
-        <div class="dd-opt" onclick="toggleOpt(this,'traffic','Direct Relationship')"><div class="dd-check"></div>Direct Relationship</div>
-        <div class="dd-opt" onclick="toggleOpt(this,'traffic','Non-Direct')"><div class="dd-check"></div>Non-Direct</div>
-      </div>
-      <div class="dd-section">
-        <div class="dd-section-label">Source</div>
-        <div class="dd-opt" onclick="toggleOpt(this,'traffic','Google')"><div class="dd-check"></div>Google</div>
-        <div class="dd-opt" onclick="toggleOpt(this,'traffic','ChatGPT')"><div class="dd-check"></div>ChatGPT</div>
-        <div class="dd-opt" onclick="toggleOpt(this,'traffic','Perplexity')"><div class="dd-check"></div>Perplexity</div>
-        <div class="dd-opt" onclick="toggleOpt(this,'traffic','Instagram')"><div class="dd-check"></div>Instagram</div>
-        <div class="dd-opt" onclick="toggleOpt(this,'traffic','Pinterest')"><div class="dd-check"></div>Pinterest</div>
-        <div class="dd-opt" onclick="toggleOpt(this,'traffic','Facebook')"><div class="dd-check"></div>Facebook</div>
-      </div>
-    </div>
-  </div>
-
-  <!-- Active pills -->
   <div class="filter-pills" id="filterPills"></div>
   <span class="filter-clear" id="clearAll" style="display:none" onclick="clearAllFilters()">Clear all</span>
 </div>
 
 <div class="page">
 
-  <!-- ══ HERO ══ -->
-  <div class="hero-row">
+  <!-- ══ ROW 1: HERO + WATERFALL ══ -->
+  <div style="display:grid;grid-template-columns:1fr 1.6fr;gap:12px">
+
+    <!-- Hero -->
     <div class="hero-card">
       <div>
-        <div class="hero-eyebrow" id="heroEyebrow">Total commissions · GQ · Mar 2026 · United States</div>
+        <div class="hero-eyebrow" id="heroEyebrow">Total revenue · GQ · Last 3 months</div>
         <div class="hero-num">$147.8K</div>
-        <div class="hero-context">vs $154.3K prior month &nbsp;·&nbsp; ▼ 4.2% MoM &nbsp;·&nbsp; Primary drag: Commission Rate decline (−$14.2K impact)</div>
+        <div class="hero-context">vs $172.4K same period last year &nbsp;·&nbsp; ▼ 14.3% YoY</div>
       </div>
       <div class="hero-chips">
         <span class="chip chip-up">UPVs ▲ 8.3%</span>
-        <span class="chip chip-up">AOV ▲ 6.2%</span>
+        <span class="chip chip-up">CTR ▲ 0.4%</span>
         <span class="chip chip-up">CVR ▲ 0.8%</span>
-        <span class="chip chip-dn">CR ▼ 14.2%</span>
-        <span class="chip chip-dn">CTR ▼ 4.1%</span>
-        <span class="chip chip-neu">Amazon #1 network</span>
-        <span class="chip chip-neu">Best Buy ▲ rev</span>
+        <span class="chip chip-up">AOV ▲ 6.2%</span>
+        <span class="chip chip-dn">CPA ▼ 14.2%</span>
       </div>
     </div>
-    <div class="hero-right">
-      <div class="stat-card">
-        <div class="stat-lbl">Direct Relationship UPVs <span class="tip-wrap"><span class="tip-icon">i</span><span class="tip-box">Email + App + Direct traffic. Excludes search &amp; paid.</span></span></div>
-        <div class="stat-sub">Email / App / Direct</div>
-        <div class="stat-val">18.4M</div>
-        <div class="stat-delta up">43.7% of total UPVs &nbsp;·&nbsp; Commerce 62% / Other 38%</div>
+
+    <!-- Waterfall -->
+    <div class="chart-panel" style="padding:16px 20px">
+      <div class="panel-lbl">
+        Revenue waterfall · YoY impact vs same period last year
+        <span class="tip-wrap">
+          <span class="tip-icon">i</span>
+          <span class="tip-box">Sequential decomposition: Revenue = UPVs × CTR × CVR × AOV × CPA. Each factor's $ impact is isolated by changing one variable at a time while holding subsequent factors at the current year value. Baseline = same period prior year.</span>
+        </span>
       </div>
-      <div class="stat-card">
-        <div class="stat-lbl">Newsletter List Size</div>
-        <div class="stat-sub">Latest snapshot</div>
-        <div class="stat-val">9.4M</div>
-        <div class="stat-delta up">▲ 12.5% MoM &nbsp;·&nbsp; +98K this period</div>
+      <div style="position:relative;height:180px"><canvas id="wfChart"></canvas></div>
+      <div class="wf-leg">
+        <div class="wf-li"><div class="wf-dot" style="background:#4A7FBF"></div>Prior year</div>
+        <div class="wf-li"><div class="wf-dot" style="background:#1E6E46"></div>Positive YoY</div>
+        <div class="wf-li"><div class="wf-dot" style="background:#A8281E"></div>Negative YoY</div>
+        <div class="wf-li"><div class="wf-dot" style="background:#4A7FBF;opacity:.5"></div>Current year</div>
       </div>
     </div>
   </div>
 
-  <!-- ══ TRAFFIC ══ -->
+  <!-- ══ ROW 2: 2026 GOALS ══ -->
   <div>
     <div class="s-hd">
       <div class="s-rule"></div><span class="s-num">01</span>
-      <span class="s-title">Traffic Quality & Loyalty</span>
-      <span class="s-hl">UPVs up 8.3% vs avg; direct and app channels driving the gain</span>
-    </div>
-    <div class="kpi-row">
-      <div class="kpi-card"><div class="kpi-lbl">Total UPVs</div><div class="kpi-sub">Unique page views</div><div class="kpi-val">42.1M</div><div class="spark-wrap"><canvas id="sp1"></canvas></div><div class="kpi-delta up">▲ 8.3% vs avg</div></div>
-      <div class="kpi-card"><div class="kpi-lbl">DR UPVs</div><div class="kpi-sub">Email / App / Direct</div><div class="kpi-val">18.4M</div><div class="spark-wrap"><canvas id="sp2"></canvas></div><div class="kpi-delta up">▲ 4.1% vs avg</div></div>
-      <div class="kpi-card"><div class="kpi-lbl">AI Traffic</div><div class="kpi-sub">ChatGPT / Perplexity</div><div class="kpi-val">2.1M</div><div class="spark-wrap"><canvas id="sp3"></canvas></div><div class="kpi-delta up">▲ 44% vs avg</div></div>
-      <div class="kpi-card"><div class="kpi-lbl">Return Visitors</div><div class="kpi-sub">2+ visits / 30 days</div><div class="kpi-val">18.7%</div><div class="spark-wrap"><canvas id="sp4"></canvas></div><div class="kpi-delta up">▲ 2.1pp vs avg</div></div>
-      <div class="kpi-card"><div class="kpi-lbl">NL List Size</div><div class="kpi-sub">Latest snapshot</div><div class="kpi-val">9.4M</div><div class="spark-wrap"><canvas id="sp5"></canvas></div><div class="kpi-delta up">▲ 12.5% MoM</div></div>
-    </div>
-  </div>
-
-  <!-- ══ REVENUE DRIVERS ══ -->
-  <div>
-    <div class="s-hd">
-      <div class="s-rule"></div><span class="s-num">02</span>
-      <span class="s-title">Revenue Driver Analysis</span>
-      <span class="s-hl">Commission Rate and CTR primary drags; CVR, AOV and UPV growth partially offset</span>
-    </div>
-    <div class="two-col">
-      <div class="chart-panel">
-        <div class="panel-lbl">Waterfall decomposition · $ impact vs prior month</div>
-        <div style="position:relative;height:210px"><canvas id="wfChart"></canvas></div>
-        <div class="wf-leg">
-          <div class="wf-li"><div class="wf-dot" style="background:#4A7FBF"></div>Prior month</div>
-          <div class="wf-li"><div class="wf-dot" style="background:#1E6E46"></div>Positive</div>
-          <div class="wf-li"><div class="wf-dot" style="background:#A8281E"></div>Negative</div>
-          <div class="wf-li"><div class="wf-dot" style="background:#4A7FBF;opacity:.5"></div>Subtotal</div>
-        </div>
-      </div>
-      <div class="chart-panel">
-        <div class="panel-lbl">KPI impact ranking · $ contribution</div>
-        <div style="position:relative;height:210px"><canvas id="impChart"></canvas></div>
-      </div>
-    </div>
-  </div>
-
-  <!-- ══ MERCHANT ══ -->
-  <div>
-    <div class="s-hd">
-      <div class="s-rule"></div><span class="s-num">03</span>
-      <span class="s-title">Merchant Breakdown</span>
-      <span class="s-hl">Amazon leads at $52.4K; Best Buy strongest growth at +18%; Walmart and Target primary negatives</span>
-    </div>
-    <div class="two-col">
-      <div class="chart-panel">
-        <div class="panel-lbl">Top 10 merchants · revenue component breakdown</div>
-        <div style="position:relative;height:220px"><canvas id="mChart"></canvas></div>
-      </div>
-      <div style="display:flex;flex-direction:column;gap:8px">
-        <div style="font-size:9px;letter-spacing:.12em;text-transform:uppercase;color:var(--gold);font-weight:600;margin-bottom:2px">Top movers</div>
-        <div class="merch-grid">
-          <div class="mc"><div class="mc-rank">▲ 1st</div><div class="mc-name">Amazon</div><div class="mc-rev">$52.4K</div><div class="mc-chips"><span class="mc-chip">CTR 4.2%</span><span class="mc-chip">CVR 3.1%</span><span class="mc-chip">AOV $184</span></div></div>
-          <div class="mc"><div class="mc-rank">▲ 2nd</div><div class="mc-name">Best Buy</div><div class="mc-rev">$28.1K</div><div class="mc-chips"><span class="mc-chip">CTR 3.8%</span><span class="mc-chip">CVR 2.9%</span><span class="mc-chip">AOV $210</span></div></div>
-          <div class="mc"><div class="mc-rank">▲ 3rd</div><div class="mc-name">Nordstrom</div><div class="mc-rev">$19.7K</div><div class="mc-chips"><span class="mc-chip">CTR 3.5%</span><span class="mc-chip">CVR 2.4%</span><span class="mc-chip">AOV $248</span></div></div>
-          <div class="mc" style="border-color:var(--dn-bd)"><div class="mc-rank dn">▼ 1st</div><div class="mc-name">Walmart</div><div class="mc-rev dn">−$8.2K</div><div class="mc-chips"><span class="mc-chip">CTR 2.1%</span><span class="mc-chip">CVR 1.8%</span><span class="mc-chip">CR 3.2%</span></div></div>
-          <div class="mc" style="border-color:var(--dn-bd)"><div class="mc-rank dn">▼ 2nd</div><div class="mc-name">Target</div><div class="mc-rev dn">−$5.4K</div><div class="mc-chips"><span class="mc-chip">CTR 2.4%</span><span class="mc-chip">AOV $112</span><span class="mc-chip">CR 2.8%</span></div></div>
-          <div class="mc" style="border-color:var(--dn-bd)"><div class="mc-rank dn">▼ 3rd</div><div class="mc-name">Wayfair</div><div class="mc-rev dn">−$3.1K</div><div class="mc-chips"><span class="mc-chip">CTR 1.9%</span><span class="mc-chip">CVR 1.2%</span><span class="mc-chip">AOV $390</span></div></div>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <!-- ══ NETWORK ══ -->
-  <div>
-    <div class="s-hd">
-      <div class="s-rule"></div><span class="s-num">04</span>
-      <span class="s-title">Network Breakdown</span>
-      <span class="s-hl">CJ Affiliate commission rate decline primary drag; Rakuten CVR improvement partially offsets</span>
-    </div>
-    <div class="two-col">
-      <div class="chart-panel">
-        <div class="panel-lbl">All networks · revenue component decomposition</div>
-        <div style="position:relative;height:220px"><canvas id="nChart"></canvas></div>
-      </div>
-      <div class="chart-panel" style="padding:0;overflow:hidden">
-        <table class="net-tbl">
-          <thead><tr><th>Network</th><th>Revenue</th><th>CVR</th><th>AOV</th><th>CR %</th><th>Share</th></tr></thead>
-          <tbody>
-            <tr><td>Amazon Assoc.</td><td class="up" style="font-weight:600">$52.4K</td><td>3.1%</td><td>$184</td><td>8.2%</td><td><div class="bar-cell"><div class="bar-fill" style="width:52px;background:var(--gold);opacity:.7"></div><span style="font-size:9px;color:var(--muted)">35%</span></div></td></tr>
-            <tr><td>CJ Affiliate</td><td class="dn" style="font-weight:600">−$6.1K</td><td>2.4%</td><td>$201</td><td>4.1%</td><td><div class="bar-cell"><div class="bar-fill" style="width:30px;background:var(--dn);opacity:.7"></div><span style="font-size:9px;color:var(--muted)">20%</span></div></td></tr>
-            <tr><td>Rakuten</td><td class="up" style="font-weight:600">$18.2K</td><td>2.9%</td><td>$228</td><td>6.8%</td><td><div class="bar-cell"><div class="bar-fill" style="width:27px;background:var(--gold);opacity:.7"></div><span style="font-size:9px;color:var(--muted)">18%</span></div></td></tr>
-            <tr><td>Impact</td><td>$12.4K</td><td>2.1%</td><td>$196</td><td>5.4%</td><td><div class="bar-cell"><div class="bar-fill" style="width:21px;background:var(--gold);opacity:.5"></div><span style="font-size:9px;color:var(--muted)">14%</span></div></td></tr>
-            <tr><td>ShareASale</td><td>$9.8K</td><td>1.8%</td><td>$172</td><td>4.9%</td><td><div class="bar-cell"><div class="bar-fill" style="width:14px;background:var(--gold);opacity:.4"></div><span style="font-size:9px;color:var(--muted)">9%</span></div></td></tr>
-          </tbody>
-        </table>
-      </div>
-    </div>
-  </div>
-
-  <!-- ══ GOALS ══ -->
-  <div>
-    <div class="s-hd">
-      <div class="s-rule"></div><span class="s-num">05</span>
       <span class="s-title">2026 Transformation Goals</span>
-      <span class="s-hl">GQ progress against the three strategic pillars</span>
+      <span class="s-hl">GQ YoY progress across the three strategic pillars</span>
     </div>
     <div class="goals-row">
       <div class="gp">
         <div class="gp-hd"><div class="gp-lbl">Pillar 1</div><div class="gp-title">Diversify Quality Traffic & Grow Loyalty</div></div>
-        <div class="gm"><div><div class="gm-name">Direct UPVs</div><div class="gm-sub">Email / App / Direct</div></div><div><div class="gm-val">18.4M</div><div class="gm-delta up">▲ 4.1%</div></div></div>
-        <div class="gm"><div><div class="gm-name">Return Visitors</div><div class="gm-sub">2+ visits / 30 days</div></div><div><div class="gm-val">18.7%</div><div class="gm-delta up">▲ 2.1pp</div></div></div>
-        <div class="gm"><div><div class="gm-name">Newsletter List</div><div class="gm-sub">Total subscribers</div></div><div><div class="gm-val">9.4M</div><div class="gm-delta up">▲ 12.5% MoM</div></div></div>
-        <div class="gm"><div><div class="gm-name">Non-Search Revenue</div><div class="gm-sub">Email / Social / App</div></div><div><div class="gm-val">$24.6K</div><div class="gm-delta dn">▼ 1.2%</div></div></div>
+        <div class="gm"><div><div class="gm-name">Direct UPVs</div><div class="gm-sub">43.7% of total UPVs</div></div><div><div class="gm-val">18.4M</div><div class="gm-delta up">▲ 4.1% YoY</div></div></div>
+        <div class="gm"><div><div class="gm-name">Return Visitors</div><div class="gm-sub">2+ visits / 30 days</div></div><div><div class="gm-val">18.7%</div><div class="gm-delta up">▲ 2.1pp YoY</div></div></div>
+        <div class="gm"><div><div class="gm-name">Newsletter List</div><div class="gm-sub">Total subscribers</div></div><div><div class="gm-val">9.4M</div><div class="gm-delta up">▲ 12.5% YoY</div></div></div>
+        <div class="gm"><div><div class="gm-name">Non-Search Revenue</div><div class="gm-sub">Email / Social / App</div></div><div><div class="gm-val">$24.6K</div><div class="gm-delta dn">▼ 1.2% YoY</div></div></div>
       </div>
       <div class="gp">
         <div class="gp-hd"><div class="gp-lbl">Pillar 2</div><div class="gp-title">Brand-First Content & Shopping Experience</div></div>
-        <div class="gm"><div><div class="gm-name">CTR</div><div class="gm-sub">Click-through rate</div></div><div><div class="gm-val">3.84%</div><div class="gm-delta dn">▼ 0.4pp</div></div></div>
-        <div class="gm"><div><div class="gm-name">AOV</div><div class="gm-sub">Average order value</div></div><div><div class="gm-val">$187</div><div class="gm-delta up">▲ 6.2%</div></div></div>
-        <div class="gm"><div><div class="gm-name">ARPU</div><div class="gm-sub">Avg revenue / 1k users</div></div><div><div class="gm-val">$412</div><div class="gm-delta up">▲ 9.1%</div></div></div>
-        <div class="gm"><div><div class="gm-name">CVR</div><div class="gm-sub">Conversion rate</div></div><div><div class="gm-val">2.6%</div><div class="gm-delta up">▲ 0.8pp</div></div></div>
+        <div class="gm"><div><div class="gm-name">CTR</div><div class="gm-sub">Click-through rate</div></div><div><div class="gm-val">3.84%</div><div class="gm-delta up">▲ 0.4pp YoY</div></div></div>
+        <div class="gm"><div><div class="gm-name">AOV</div><div class="gm-sub">Average order value</div></div><div><div class="gm-val">$187</div><div class="gm-delta up">▲ 6.2% YoY</div></div></div>
+        <div class="gm"><div><div class="gm-name">ARPU</div><div class="gm-sub">Avg revenue / 1k users</div></div><div><div class="gm-val">$412</div><div class="gm-delta up">▲ 9.1% YoY</div></div></div>
+        <div class="gm"><div><div class="gm-name">CVR</div><div class="gm-sub">Conversion rate</div></div><div><div class="gm-val">2.6%</div><div class="gm-delta up">▲ 0.8pp YoY</div></div></div>
       </div>
       <div class="gp">
         <div class="gp-hd"><div class="gp-lbl">Pillar 3</div><div class="gp-title">Business Model Innovation</div></div>
         <div class="gm"><div><div class="gm-name">Partnerships Revenue</div><div class="gm-sub">YoY growth</div></div><div><div class="gm-val">+18%</div><div class="gm-delta up">▲ On track</div></div></div>
-        <div class="gm"><div><div class="gm-name">Growth Initiatives</div><div class="gm-sub">Revenue contribution</div></div><div><div class="gm-val">$8.2K</div><div class="gm-delta up">▲ 22%</div></div></div>
-        <div class="gm"><div><div class="gm-name">AI Traffic Revenue</div><div class="gm-sub">ChatGPT / Perplexity</div></div><div><div class="gm-val">$3.4K</div><div class="gm-delta up">▲ 44%</div></div></div>
+        <div class="gm"><div><div class="gm-name">Growth Initiatives</div><div class="gm-sub">Revenue contribution</div></div><div><div class="gm-val">$8.2K</div><div class="gm-delta up">▲ 22% YoY</div></div></div>
+        <div class="gm"><div><div class="gm-name">AI Traffic Revenue</div><div class="gm-sub">ChatGPT / Perplexity</div></div><div><div class="gm-val">$3.4K</div><div class="gm-delta up">▲ 44% YoY</div></div></div>
       </div>
     </div>
   </div>
 
-  <!-- ══ METHOD ══ -->
-  <div class="method">
-    <div class="method-lbl">Methodology</div>
-    <div class="method-txt">Revenue decomposition uses sequential attribution: <strong style="color:var(--ink2);font-weight:500">Revenue = UPVs × CTR × CVR × AOV × CR</strong>. Each factor's $ impact is calculated by isolating its change while holding all subsequent factors at the current period value. "CR" = Commission Rate (cpa_pct). Baseline = trailing 4-period average. DR UPVs = Email, App, and Direct entrance types from <em>commerce_weekly_drUPVs</em>. NL List Size = latest snapshot from <em>commerce_weekly_NLlistSize</em>. Filters apply to all sections simultaneously.</div>
+  <!-- ══ ROW 3: TRAFFIC LINE CHART ══ -->
+  <div>
+    <div class="s-hd">
+      <div class="s-rule"></div><span class="s-num">02</span>
+      <span class="s-title">Traffic Quality & Loyalty</span>
+      <span class="s-hl">Direct relationship UPVs growing as share of total; newsletter list up 12.5% YoY</span>
+    </div>
+    <div class="traffic-panel">
+      <div class="panel-lbl">Monthly trend · all traffic signals</div>
+      <div style="position:relative;height:220px"><canvas id="trafficChart"></canvas></div>
+      <div class="tl-legend">
+        <div class="tl-li"><div class="tl-line" style="background:#4A7FBF"></div>Total UPVs</div>
+        <div class="tl-li"><div class="tl-line" style="background:#9A7C3F"></div>DR UPVs</div>
+        <div class="tl-li"><div class="tl-line" style="background:#1E6E46;border-top:2px dashed #1E6E46;height:0"></div>Return Visitors %</div>
+        <div class="tl-li"><div class="tl-line" style="background:#7A5CA0"></div>NL List Size</div>
+      </div>
+    </div>
   </div>
+
 
 </div>
 
@@ -517,251 +305,190 @@ html{background:var(--bg);color:var(--ink);font-family:var(--sans);font-size:14p
 </div>
 
 <script>
-const GOLD='#9A7C3F',INK='#1A1714',MUTED='#8C8479',UP='#1E6E46',DN='#A8281E',BLUE='#4A7FBF',BORDER='#E4DED4';
+const GOLD='#9A7C3F',INK='#1A1714',MUTED='#8C8479',UP='#1E6E46',DN='#A8281E',BLUE='#4A7FBF',BORDER='#E4DED4',PURPLE='#7A5CA0';
 Chart.defaults.color=MUTED;
 Chart.defaults.font.family="'Helvetica Neue',Arial,sans-serif";
 Chart.defaults.font.size=10;
 
-// ── State ──
-const state = {
-  brand: 'GQ',
-  date: 'Last 3 months',
-  market: new Set(['United States']),
-  channel: new Set(),
-  traffic: new Set()
-};
+const state={brand:'GQ',date:'Last 3 months',market:new Set(['United States'])};
 
-// ── Brand select ──
-function selBrand(el, name) {
+function selBrand(el,name){
   document.querySelectorAll('.btab').forEach(b=>b.classList.remove('on'));
-  el.classList.add('on');
-  state.brand = name;
-  updateHeroEyebrow();
+  el.classList.add('on'); state.brand=name; updateEyebrow();
 }
 
-// ── Dropdown toggle ──
-function toggleDD(key) {
-  const panels = ['date','market','channel','traffic'];
-  panels.forEach(k => {
-    const p = document.getElementById('panel-'+k);
-    const b = document.getElementById('btn-'+k);
-    if(k === key) {
-      const isOpen = p.classList.contains('open');
-      p.classList.toggle('open', !isOpen);
-      b.classList.toggle('active', !isOpen);
-    } else {
-      p.classList.remove('open');
-      b.classList.remove('active');
-    }
+function toggleDD(key){
+  ['date','market'].forEach(k=>{
+    const p=document.getElementById('panel-'+k),b=document.getElementById('btn-'+k);
+    if(k===key){const o=p.classList.contains('open');p.classList.toggle('open',!o);b.classList.toggle('active',!o||k==='date'||state[k] instanceof Set&&state[k].size>0);}
+    else{p.classList.remove('open');}
   });
 }
 
-// Close dropdowns on outside click
-document.addEventListener('click', e => {
-  if (!e.target.closest('.dd-wrap')) {
-    document.querySelectorAll('.dd-panel').forEach(p => p.classList.remove('open'));
-    document.querySelectorAll('.dd-btn').forEach(b => {
-      const key = b.id.replace('btn-','');
-      const hasActive = key==='date' ? state.date !== 'Date range'
-        : key==='market' ? state.market.size > 0
-        : key==='channel' ? state.channel.size > 0
-        : state.traffic.size > 0;
-      if(!hasActive) b.classList.remove('active');
-    });
+document.addEventListener('click',e=>{
+  if(!e.target.closest('.dd-wrap')){
+    document.querySelectorAll('.dd-panel').forEach(p=>p.classList.remove('open'));
   }
 });
 
-// ── Quick date ──
-function setQuickDate(label, el) {
-  el.closest('.dd-section').querySelectorAll('.dd-opt').forEach(o=>{
-    o.classList.remove('selected');
-    o.querySelector('.dd-check').textContent='';
-  });
-  el.classList.add('selected');
-  el.querySelector('.dd-check').textContent='✓';
-  state.date = label;
-  document.getElementById('lbl-date').textContent = label;
+function setQuickDate(label,el){
+  el.closest('.dd-section').querySelectorAll('.dd-opt').forEach(o=>{o.classList.remove('selected');o.querySelector('.dd-check').textContent='';});
+  el.classList.add('selected');el.querySelector('.dd-check').textContent='✓';
+  state.date=label;
+  document.getElementById('lbl-date').textContent=label;
   document.getElementById('btn-date').classList.add('active');
-  updatePills();
-  updateHeroEyebrow();
   document.getElementById('panel-date').classList.remove('open');
+  updatePills();updateEyebrow();
 }
 
-function applyDate() {
-  const from = document.getElementById('date-from').value;
-  const to = document.getElementById('date-to').value;
-  if(!from || !to) return;
-  const fmt = d => new Date(d).toLocaleDateString('en-US',{month:'short',day:'numeric',year:'numeric'});
-  const label = fmt(from) + ' – ' + fmt(to);
-  state.date = label;
-  document.getElementById('lbl-date').textContent = label;
+function applyDate(){
+  const f=document.getElementById('date-from').value,t=document.getElementById('date-to').value;
+  if(!f||!t)return;
+  const fmt=d=>new Date(d).toLocaleDateString('en-US',{month:'short',day:'numeric',year:'numeric'});
+  const label=fmt(f)+' – '+fmt(t);
+  state.date=label;
+  document.getElementById('lbl-date').textContent=label;
   document.getElementById('btn-date').classList.add('active');
-  document.getElementById('panel-date').querySelectorAll('.dd-opt').forEach(o=>{
-    o.classList.remove('selected'); o.querySelector('.dd-check').textContent='';
-  });
-  updatePills();
-  updateHeroEyebrow();
+  document.getElementById('panel-date').querySelectorAll('.dd-opt').forEach(o=>{o.classList.remove('selected');o.querySelector('.dd-check').textContent='';});
   document.getElementById('panel-date').classList.remove('open');
+  updatePills();updateEyebrow();
 }
 
-// ── Multi-select opts ──
-function toggleOpt(el, key, val) {
-  const set = state[key];
-  if(set.has(val)) { set.delete(val); el.classList.remove('selected'); el.querySelector('.dd-check').textContent=''; }
-  else { set.add(val); el.classList.add('selected'); el.querySelector('.dd-check').textContent='✓'; }
-  const count = set.size;
-  const labelEl = document.getElementById('lbl-'+key);
-  const btnEl = document.getElementById('btn-'+key);
-  const names = { market:'Market', channel:'Channel', traffic:'Traffic source' };
-  labelEl.textContent = count === 0 ? names[key] : count === 1 ? [...set][0] : `${names[key]} (${count})`;
-  btnEl.classList.toggle('active', count > 0);
-  updatePills();
-  updateHeroEyebrow();
+function toggleOpt(el,key,val){
+  const set=state[key];
+  if(set.has(val)){set.delete(val);el.classList.remove('selected');el.querySelector('.dd-check').textContent='';}
+  else{set.add(val);el.classList.add('selected');el.querySelector('.dd-check').textContent='✓';}
+  const count=set.size;
+  const names={market:'Market'};
+  document.getElementById('lbl-'+key).textContent=count===0?names[key]:count===1?[...set][0]:`${names[key]} (${count})`;
+  document.getElementById('btn-'+key).classList.toggle('active',count>0);
+  updatePills();updateEyebrow();
 }
 
-// ── Pills ──
-function updatePills() {
-  const container = document.getElementById('filterPills');
-  container.innerHTML = '';
-  const pills = [];
-  if(state.date && state.date !== 'Date range') pills.push({key:'date', label: state.date});
-  state.market.forEach(v => pills.push({key:'market', label: v}));
-  state.channel.forEach(v => pills.push({key:'channel', label: v}));
-  state.traffic.forEach(v => pills.push({key:'traffic', label: v}));
-
-  pills.forEach(({key,label}) => {
-    const p = document.createElement('span');
-    p.className = 'fpill';
-    p.innerHTML = `${label}<span class="fpill-x" onclick="removePill('${key}','${label}')">×</span>`;
-    container.appendChild(p);
+function updatePills(){
+  const c=document.getElementById('filterPills');c.innerHTML='';
+  const pills=[];
+  state.market.forEach(v=>pills.push({key:'market',label:v}));
+  pills.forEach(({key,label})=>{
+    const p=document.createElement('span');p.className='fpill';
+    p.innerHTML=`${label}<span class="fpill-x" onclick="removePill('${key}','${label}')">×</span>`;
+    c.appendChild(p);
   });
-  document.getElementById('clearAll').style.display = pills.length > 0 ? 'inline' : 'none';
+  document.getElementById('clearAll').style.display=pills.length>0?'inline':'none';
 }
 
-function removePill(key, val) {
-  if(key === 'date') {
-    state.date = 'Date range';
-    document.getElementById('lbl-date').textContent = 'Date range';
-    document.getElementById('btn-date').classList.remove('active');
-    document.getElementById('panel-date').querySelectorAll('.dd-opt').forEach(o=>{
-      o.classList.remove('selected'); o.querySelector('.dd-check').textContent='';
-    });
-  } else {
-    state[key].delete(val);
-    const names = { market:'Market', channel:'Channel', traffic:'Traffic source' };
-    const count = state[key].size;
-    const labelEl = document.getElementById('lbl-'+key);
-    const btnEl = document.getElementById('btn-'+key);
-    labelEl.textContent = count === 0 ? names[key] : count === 1 ? [...state[key]][0] : `${names[key]} (${count})`;
-    btnEl.classList.toggle('active', count > 0);
-    document.getElementById('panel-'+key).querySelectorAll('.dd-opt').forEach(o => {
-      if(o.textContent.trim().startsWith(val)) {
-        o.classList.remove('selected'); o.querySelector('.dd-check').textContent='';
-      }
-    });
-  }
-  updatePills();
-  updateHeroEyebrow();
-}
-
-function clearAllFilters() {
-  state.date = 'Date range'; state.market.clear(); state.channel.clear(); state.traffic.clear();
-  document.getElementById('lbl-date').textContent='Date range';
-  ['date','market','channel','traffic'].forEach(k=>{
-    document.getElementById('btn-'+k).classList.remove('active');
-    document.getElementById('panel-'+k).querySelectorAll('.dd-opt').forEach(o=>{
-      o.classList.remove('selected'); o.querySelector('.dd-check').textContent='';
-    });
+function removePill(key,val){
+  state[key].delete(val);
+  const names={market:'Market'};
+  const count=state[key].size;
+  document.getElementById('lbl-'+key).textContent=count===0?names[key]:count===1?[...state[key]][0]:`${names[key]} (${count})`;
+  document.getElementById('btn-'+key).classList.toggle('active',count>0);
+  document.getElementById('panel-'+key).querySelectorAll('.dd-opt').forEach(o=>{
+    if(o.textContent.trim().startsWith(val)){o.classList.remove('selected');o.querySelector('.dd-check').textContent='';}
   });
+  updatePills();updateEyebrow();
+}
+
+function clearAllFilters(){
+  state.market.clear();
   document.getElementById('lbl-market').textContent='Market';
-  document.getElementById('lbl-channel').textContent='Channel';
-  document.getElementById('lbl-traffic').textContent='Traffic source';
-  updatePills(); updateHeroEyebrow();
+  document.getElementById('btn-market').classList.remove('active');
+  document.getElementById('panel-market').querySelectorAll('.dd-opt').forEach(o=>{o.classList.remove('selected');o.querySelector('.dd-check').textContent='';});
+  updatePills();updateEyebrow();
 }
 
-function updateHeroEyebrow() {
-  const mkt = state.market.size > 0 ? [...state.market].join(', ') : 'All markets';
-  const date = state.date !== 'Date range' ? state.date : 'All dates';
-  document.getElementById('heroEyebrow').textContent = `Total commissions · ${state.brand} · ${date} · ${mkt}`;
-
+function updateEyebrow(){
+  const mkt=state.market.size>0?[...state.market].join(', '):'All markets';
+  document.getElementById('heroEyebrow').textContent=`Total revenue · ${state.brand} · ${state.date} · ${mkt}`;
 }
+
+const tip={backgroundColor:'#1A1714',borderColor:BORDER,borderWidth:1,titleColor:'#F7F4F0',bodyColor:'#B8B0A4',padding:8,cornerRadius:3};
 
 // ── Sparklines ──
-[[32,35,37,36,39,41,42],[14,15,16,15,17,18,18.4],[0.8,1,1.2,1.4,1.6,1.9,2.1],[14,15,16,15,17,18,18.7],[7,7.5,8,8.2,8.8,9.1,9.4]]
-.forEach((d,i)=>{
+const sparkDefs=[
+  {d:[32,35,37,36,39,41,42],up:true},
+  {d:[3.1,3.2,3.4,3.5,3.6,3.7,3.84],up:true},
+  {d:[2.0,2.1,2.2,2.1,2.3,2.5,2.6],up:true},
+  {d:[155,162,168,172,178,182,187],up:true},
+  {d:[11,10.8,10.2,9.8,9.2,8.8,8.4],up:false},
+];
+sparkDefs.forEach(({d,up},i)=>{
   const ctx=document.getElementById('sp'+(i+1))?.getContext('2d');
-  if(!ctx) return;
-  const up=d[d.length-1]>=d[0],c=up?UP:DN;
+  if(!ctx)return;
+  const c=up?UP:DN;
   new Chart(ctx,{type:'line',data:{labels:d.map((_,j)=>j),datasets:[{data:d,borderColor:c,borderWidth:1.5,pointRadius:0,tension:.4,fill:true,
-    backgroundColor:c2=>{const g=c2.chart.ctx.createLinearGradient(0,0,0,26);g.addColorStop(0,up?'rgba(30,110,70,.15)':'rgba(168,40,30,.12)');g.addColorStop(1,'rgba(0,0,0,0)');return g}}]},
+    backgroundColor:c2=>{const g=c2.chart.ctx.createLinearGradient(0,0,0,26);g.addColorStop(0,up?'rgba(30,110,70,.15)':'rgba(168,40,30,.12)');g.addColorStop(1,'rgba(0,0,0,0)');return g;}}]},
     options:{animation:false,plugins:{legend:{display:false},tooltip:{enabled:false}},scales:{x:{display:false},y:{display:false}},responsive:true,maintainAspectRatio:false}
   });
 });
 
-const tip={backgroundColor:'#1A1714',borderColor:BORDER,borderWidth:1,titleColor:'#F7F4F0',bodyColor:'#B8B0A4',padding:8,cornerRadius:3};
-
-// ── Waterfall ──
+// ── Waterfall (YoY baseline = prior year) ──
 (()=>{
-  const labels=['Baseline','UPVs','CTR','CVR','AOV','CR','Adj.','Subtotal'];
-  const base=154300,impacts=[0,12100,-9800,4200,6400,-14200,-4700,0];
+  const labels=['Prior year','UPVs','CTR','CVR','AOV','CPA','Current year'];
+  const base=172400, impacts=[0,12100,4200,3800,6400,-51100,0];
   let run=base; const starts=[],bars=[],colors=[];
   labels.forEach((l,i)=>{
     if(i===0){starts.push(0);bars.push(base);colors.push(BLUE);}
-    else if(i===labels.length-1){const sub=base+impacts.slice(1,-1).reduce((a,b)=>a+b,0)+impacts[impacts.length-1];starts.push(0);bars.push(sub);colors.push('rgba(74,127,191,.55)');}
-    else{const imp=impacts[i];if(imp>=0){starts.push(run);bars.push(imp);colors.push(UP);}else{starts.push(run+imp);bars.push(-imp);colors.push(DN);}run+=imp;}
+    else if(i===labels.length-1){
+      const cur=base+impacts.slice(1,-1).reduce((a,b)=>a+b,0);
+      starts.push(0);bars.push(cur);colors.push('rgba(74,127,191,.5)');
+    } else {
+      const imp=impacts[i];
+      if(imp>=0){starts.push(run);bars.push(imp);colors.push(UP);}
+      else{starts.push(run+imp);bars.push(-imp);colors.push(DN);}
+      run+=imp;
+    }
   });
-  new Chart(document.getElementById('wfChart').getContext('2d'),{type:'bar',data:{labels,datasets:[
-    {label:'_',data:starts,backgroundColor:'transparent',stack:'w'},
-    {label:'Impact',data:bars,backgroundColor:colors,stack:'w',borderRadius:2,borderSkipped:false}
-  ]},options:{animation:false,responsive:true,maintainAspectRatio:false,
-    plugins:{legend:{display:false},tooltip:{...tip,filter:i=>i.datasetIndex===1,callbacks:{label:c=>{const i=c.dataIndex,v=impacts[i];if(i===0)return ` Baseline: $${(base/1000).toFixed(1)}K`;if(i===labels.length-1)return ` Subtotal: $${(bars[i]/1000).toFixed(1)}K`;return ` ${v>=0?'+':''}$${(v/1000).toFixed(1)}K`;}}}},
-    scales:{x:{stacked:true,grid:{display:false},border:{display:false},ticks:{color:MUTED,font:{size:9}}},y:{stacked:true,grid:{color:BORDER},border:{display:false},ticks:{color:MUTED,font:{size:9},callback:v=>'$'+(v/1000).toFixed(0)+'K'}}}
-  }});
-})();
-
-// ── Impact ──
-(()=>{
-  const d=[{l:'UPVs',v:12.1},{l:'AOV',v:6.4},{l:'CVR',v:4.2},{l:'Adj.',v:-4.7},{l:'CTR',v:-9.8},{l:'CR',v:-14.2}].sort((a,b)=>b.v-a.v);
-  new Chart(document.getElementById('impChart').getContext('2d'),{type:'bar',data:{labels:d.map(x=>x.l),datasets:[{data:d.map(x=>x.v),backgroundColor:d.map(x=>x.v>=0?'rgba(30,110,70,.7)':'rgba(168,40,30,.7)'),borderRadius:2,borderSkipped:false}]},
-    options:{indexAxis:'y',animation:false,responsive:true,maintainAspectRatio:false,
-      plugins:{legend:{display:false},tooltip:{...tip,callbacks:{label:c=>` $${c.raw>=0?'+':''}${c.raw.toFixed(1)}K`}}},
-      scales:{x:{grid:{color:BORDER},border:{display:false},ticks:{color:MUTED,font:{size:9},callback:v=>(v>0?'+':'')+v+'K'}},y:{grid:{display:false},border:{display:false},ticks:{color:INK,font:{size:10}}}}}
+  new Chart(document.getElementById('wfChart').getContext('2d'),{
+    type:'bar',
+    data:{labels,datasets:[
+      {label:'_',data:starts,backgroundColor:'transparent',stack:'w'},
+      {label:'Impact',data:bars,backgroundColor:colors,stack:'w',borderRadius:2,borderSkipped:false}
+    ]},
+    options:{animation:false,responsive:true,maintainAspectRatio:false,
+      plugins:{legend:{display:false},tooltip:{...tip,filter:i=>i.datasetIndex===1,
+        callbacks:{label:c=>{const i=c.dataIndex,v=impacts[i];
+          if(i===0)return ` Prior year: $${(base/1000).toFixed(1)}K`;
+          if(i===labels.length-1)return ` Current year: $${(bars[i]/1000).toFixed(1)}K`;
+          return ` ${v>=0?'+':''}$${(v/1000).toFixed(1)}K YoY`;
+        }}}},
+      scales:{
+        x:{stacked:true,grid:{display:false},border:{display:false},ticks:{color:MUTED,font:{size:9}}},
+        y:{stacked:true,grid:{color:BORDER},border:{display:false},ticks:{color:MUTED,font:{size:9},callback:v=>'$'+(v/1000).toFixed(0)+'K'}}
+      }
+    }
   });
 })();
 
-// ── Merchant ──
+// ── Traffic line chart ──
 (()=>{
-  const labels=['Amazon','Best Buy','Nordstrom','Apple','Nike','Walmart','Target','Wayfair','Sephora','Gap'];
-  const mkDs=(data,color)=>({data,backgroundColor:color,borderRadius:1,borderSkipped:false});
-  new Chart(document.getElementById('mChart').getContext('2d'),{type:'bar',data:{labels,datasets:[
-    mkDs([4200,3100,1800,2200,1400,-800,-600,-400,-300,-200],'rgba(74,127,191,.7)'),
-    mkDs([3100,1800,1200,900,600,-600,-400,-300,-200,-150],'rgba(30,110,70,.65)'),
-    mkDs([2800,1400,900,600,400,-500,-300,-200,-150,-100],'rgba(154,124,63,.7)'),
-    mkDs([2300,1000,700,500,300,-400,-250,-150,-100,-80],'rgba(168,40,30,.6)'),
-  ]},options:{animation:false,responsive:true,maintainAspectRatio:false,
-    plugins:{legend:{position:'bottom',labels:{color:MUTED,font:{size:9},boxWidth:10,padding:8,generateLabels:()=>[{text:'Clicks',fillStyle:'rgba(74,127,191,.7)'},{text:'CVR',fillStyle:'rgba(30,110,70,.65)'},{text:'AOV',fillStyle:'rgba(154,124,63,.7)'},{text:'CR',fillStyle:'rgba(168,40,30,.6)'}]}},
-      tooltip:{...tip,callbacks:{label:c=>` ${['Clicks','CVR','AOV','CR'][c.datasetIndex]}: $${(c.raw/1000).toFixed(1)}K`}}},
-    scales:{x:{stacked:true,grid:{display:false},border:{display:false},ticks:{color:MUTED,font:{size:8},maxRotation:30}},y:{stacked:true,grid:{color:BORDER},border:{display:false},ticks:{color:MUTED,font:{size:9},callback:v=>'$'+(v/1000).toFixed(0)+'K'}}}
-  }});
+  const months=['Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec','Jan','Feb','Mar'];
+  const totalUPVs=[36,34,38,40,37,39,42,45,41,38,40,42];
+  const drUPVs=[14,13,15,16,15,16,17,19,17,16,17,18];
+  const returnVis=[15,14,16,16,15,17,18,19,18,17,18,19];
+  const nlList=[7.8,7.9,8.0,8.1,8.2,8.4,8.6,8.9,9.0,9.1,9.3,9.4];
+
+  const ctx=document.getElementById('trafficChart').getContext('2d');
+  new Chart(ctx,{
+    type:'line',
+    data:{labels:months,datasets:[
+      {label:'Total UPVs (M)',data:totalUPVs,borderColor:BLUE,borderWidth:2,pointRadius:0,tension:.4,fill:false,yAxisID:'y'},
+      {label:'DR UPVs (M)',data:drUPVs,borderColor:GOLD,borderWidth:2,pointRadius:0,tension:.4,fill:false,yAxisID:'y'},
+      {label:'Return Visitors %',data:returnVis,borderColor:UP,borderWidth:1.5,borderDash:[4,3],pointRadius:0,tension:.4,fill:false,yAxisID:'y2'},
+      {label:'NL List (M)',data:nlList,borderColor:PURPLE,borderWidth:2,pointRadius:0,tension:.4,fill:false,yAxisID:'y'},
+    ]},
+    options:{animation:false,responsive:true,maintainAspectRatio:false,
+      interaction:{mode:'index',intersect:false},
+      plugins:{legend:{display:false},tooltip:{...tip}},
+      scales:{
+        x:{grid:{display:false},border:{display:false},ticks:{color:MUTED,font:{size:9}}},
+        y:{position:'left',grid:{color:BORDER},border:{display:false},ticks:{color:MUTED,font:{size:9},callback:v=>v+'M'},title:{display:true,text:'Millions',color:MUTED,font:{size:9}}},
+        y2:{position:'right',grid:{display:false},border:{display:false},ticks:{color:UP,font:{size:9},callback:v=>v+'%'},min:0,max:30}
+      }
+    }
+  });
 })();
 
-// ── Network ──
-(()=>{
-  const labels=['Amazon','Rakuten','Impact','ShareASale','CJ Affiliate'];
-  const nkDs=(data,color)=>({data,backgroundColor:color,borderRadius:1,borderSkipped:false});
-  new Chart(document.getElementById('nChart').getContext('2d'),{type:'bar',data:{labels,datasets:[
-    nkDs([18000,7200,4800,3600,-2400],'rgba(74,127,191,.7)'),
-    nkDs([14000,5200,3200,2400,-1800],'rgba(30,110,70,.65)'),
-    nkDs([12000,4200,2800,2000,-1200],'rgba(154,124,63,.7)'),
-    nkDs([8400,1800,1200,800,-700],'rgba(168,40,30,.6)'),
-  ]},options:{animation:false,responsive:true,maintainAspectRatio:false,
-    plugins:{legend:{position:'bottom',labels:{color:MUTED,font:{size:9},boxWidth:10,padding:8,generateLabels:()=>[{text:'Clicks',fillStyle:'rgba(74,127,191,.7)'},{text:'CVR',fillStyle:'rgba(30,110,70,.65)'},{text:'AOV',fillStyle:'rgba(154,124,63,.7)'},{text:'CR',fillStyle:'rgba(168,40,30,.6)'}]}},
-      tooltip:{...tip}},
-    scales:{x:{stacked:true,grid:{display:false},border:{display:false},ticks:{color:MUTED,font:{size:9}}},y:{stacked:true,grid:{color:BORDER},border:{display:false},ticks:{color:MUTED,font:{size:9},callback:v=>'$'+(v/1000).toFixed(0)+'K'}}}
-  }});
-})();
-
-// Init
 updatePills();
 </script>
 </body>
