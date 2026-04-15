@@ -146,14 +146,10 @@ html{background:var(--bg);color:var(--ink);font-family:var(--sans);font-size:14p
     </div>
   </div>
   <div class="dd-wrap" id="wrap-market">
-    <button class="dd-btn" id="btn-market"><span id="lbl-market">Market</span><span class="dd-caret"></span></button>
+    <button class="dd-btn active" id="btn-market"><span id="lbl-market">US</span><span class="dd-caret"></span></button>
     <div class="dd-panel" id="panel-market" style="min-width:160px">
       <div class="dd-sec">
-        <div class="dd-opt" data-val="United States"><div class="dd-chk"></div>United States</div>
-        <div class="dd-opt" data-val="United Kingdom"><div class="dd-chk"></div>United Kingdom</div>
-        <div class="dd-opt" data-val="France"><div class="dd-chk"></div>France</div>
-        <div class="dd-opt" data-val="Germany"><div class="dd-chk"></div>Germany</div>
-        <div class="dd-opt" data-val="Australia"><div class="dd-chk"></div>Australia</div>
+        <div class="dd-opt sel" data-val="US"><div class="dd-chk">✓</div>US</div>
       </div>
     </div>
   </div>
@@ -352,7 +348,8 @@ Chart.defaults.color = MUTED;
 Chart.defaults.font.family = "'Helvetica Neue',Arial,sans-serif";
 Chart.defaults.font.size = 10;
 
-var state = { brand:'Wired', date:'Last month', market: new Set() };
+var DEFAULT_MARKET = 'US';
+var state = { brand:'Wired', date:'Last month', market: new Set([DEFAULT_MARKET]) };
 
 function getData() {
   var b = DATA[state.brand];
@@ -896,6 +893,7 @@ document.getElementById('applyDate').addEventListener('click', function() {
 document.querySelectorAll('#panel-market .dd-opt').forEach(function(opt) {
   opt.addEventListener('click', function() {
     var val = opt.getAttribute('data-val');
+    if (val === DEFAULT_MARKET && state.market.has(DEFAULT_MARKET)) return;
     if (state.market.has(val)) {
       state.market.delete(val);
       opt.classList.remove('sel'); opt.querySelector('.dd-chk').textContent = '';
@@ -913,11 +911,15 @@ document.querySelectorAll('#panel-market .dd-opt').forEach(function(opt) {
 
 document.getElementById('clearAll').addEventListener('click', function() {
   state.market.clear();
+  state.market.add(DEFAULT_MARKET);
   document.querySelectorAll('#panel-market .dd-opt').forEach(function(o) {
-    o.classList.remove('sel'); o.querySelector('.dd-chk').textContent = '';
+    var val = o.getAttribute('data-val');
+    var isDefault = val === DEFAULT_MARKET;
+    o.classList.toggle('sel', isDefault);
+    o.querySelector('.dd-chk').textContent = isDefault ? '✓' : '';
   });
-  document.getElementById('lbl-market').textContent = 'Market';
-  document.getElementById('btn-market').classList.remove('active');
+  document.getElementById('lbl-market').textContent = DEFAULT_MARKET;
+  document.getElementById('btn-market').classList.add('active');
   updatePills();
   renderDashboard();
 });
@@ -926,6 +928,7 @@ function updatePills() {
   var c = document.getElementById('filterPills');
   c.innerHTML = '';
   state.market.forEach(function(val) {
+    if (val === DEFAULT_MARKET) return;
     var el = document.createElement('span');
     el.className = 'fpill';
     var txt = document.createTextNode(val + ' ');
@@ -945,10 +948,11 @@ function updatePills() {
     el.appendChild(txt); el.appendChild(x);
     c.appendChild(el);
   });
-  document.getElementById('clearAll').style.display = state.market.size > 0 ? 'inline' : 'none';
+  document.getElementById('clearAll').style.display = state.market.size > 1 ? 'inline' : 'none';
 }
 
 // Initial render
+updatePills();
 renderDashboard();
 </script>
 </body>
