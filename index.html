@@ -68,7 +68,7 @@ html{background:var(--bg);color:var(--ink);font-family:var(--sans);font-size:14p
 .s-num{font-size:9px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted2);font-weight:600}
 .s-title{font-family:var(--serif);font-size:15px;color:var(--ink)}
 .s-hl{font-size:10px;color:var(--muted);margin-left:auto;max-width:400px;text-align:right;line-height:1.5}
-.goals-row{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px}
+.goals-row{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}
 .gp{background:var(--surface);border:1px solid var(--border);border-radius:3px;padding:16px 18px}
 .gp-hd{margin-bottom:12px;padding-bottom:10px;border-bottom:1px solid var(--border)}
 .gp-lbl{font-size:9px;letter-spacing:.16em;text-transform:uppercase;color:var(--gold);font-weight:600;margin-bottom:3px}
@@ -193,12 +193,11 @@ html{background:var(--bg);color:var(--ink);font-family:var(--sans);font-size:14p
     <div class="s-hd">
       <div class="s-rule"></div><span class="s-num">01</span>
       <span class="s-title">2026 Transformation Goals</span>
-      <span class="s-hl" id="goalsHl">YoY progress across the three strategic pillars</span>
+      <span class="s-hl" id="goalsHl">YoY progress across the two strategic pillars</span>
     </div>
     <div class="goals-row">
       <div class="gp"><div class="gp-hd"><div class="gp-lbl">Pillar 1</div><div class="gp-title">Diversify Quality Traffic & Grow Loyalty</div></div><div id="pillar-p1"></div></div>
       <div class="gp"><div class="gp-hd"><div class="gp-lbl">Pillar 2</div><div class="gp-title">Brand-First Content & Shopping Experience</div></div><div id="pillar-p2"></div></div>
-      <div class="gp"><div class="gp-hd"><div class="gp-lbl">Pillar 3</div><div class="gp-title">Business Model Innovation</div></div><div id="pillar-p3"></div></div>
     </div>
   </div>
 
@@ -399,11 +398,6 @@ var PILLAR_ROW_DEFS = {
     { group: 'headline',   key: 'aov',  name: 'AOV',  sub: 'Average order value' },
     { group: 'innovation', key: 'arpu', name: 'ARPU', sub: 'Avg revenue / 1k users' },
     { group: 'headline',   key: 'cvr',  name: 'CVR',  sub: 'Conversion rate' }
-  ],
-  p3: [
-    { group: 'innovation', key: 'partnershipRevenue', name: 'Partnerships Revenue', sub: 'YoY growth' },
-    { group: 'innovation', key: 'growthInitiatives',  name: 'Growth Initiatives',    sub: 'Revenue contribution' },
-    { group: 'innovation', key: 'aiTrafficRevenue',   name: 'AI Traffic Revenue',     sub: 'ChatGPT / Perplexity' }
   ]
 };
 
@@ -644,7 +638,6 @@ function renderDashboard() {
   // Pillars
   renderPillar('p1', buildPillarRows(d, 'p1'));
   renderPillar('p2', buildPillarRows(d, 'p2'));
-  renderPillar('p3', buildPillarRows(d, 'p3'));
 
   // Waterfall
   updateWaterfall(buildWaterfallFromMetrics(d));
